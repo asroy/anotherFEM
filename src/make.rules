@@ -1,0 +1,41 @@
+# -*- Mode: Makefile; -*-
+PS_SRC =   KindDefinition.f90 \
+           Constant.f90 \
+           GlobalVariableForDebug.f90 \
+           Common_Type_CRS.f90 \
+           Common_Type_Dependency.f90 \
+           Common_Overload.f90 \
+           Common_Function.f90 \
+           IO.f90 \
+           Mesh_Generic.f90 \
+           Mesh_Importer_Grd.f90 \
+           FEMEntry_Generic.f90 \
+           FEMEntry_ElementType_Lagrange.f90 \
+           FEMEntry_Quadrature_Gauss.f90 \
+           FEMEntry_LocalNode_Default.f90 \
+           TimeControl.f90 \
+           FEM_Generic.f90 \
+           FEM_ElementType_Lagrange.f90  \
+           FEM_Equation_Poisson.f90 \
+           Euler.f90  FEM_Equation_Euler.f90 \
+           GMRES.f90 \
+           LinearSystem_Generic.f90 \
+           LinearSystem_Preconditioner_ILU.f90 \
+           LinearSystem_Solver_LUSGS.f90 \
+           LinearSystem_Solver_GMRES.f90 \
+           TimeSolver_Generic.f90 \
+           TimeSolver_Steady_Newton.f90 \
+           TimeSolver_Steady_TimeMarch.f90 \
+           TimeSolver_Steady_TimeMarch_RmsMinimization.f90 \
+           Driver.f90
+
+PS_OBJ_F90 = $(PS_SRC:.f90=.o)
+
+$(PS_OBJ_F90) : %.o: $(CODE_DIR)/%.f90
+	$(build_obj)
+
+PlayStation: $(PS_OBJ_F90) blas.o
+	$(build_exec)
+
+clean_exec::
+	rm -f PlayStation

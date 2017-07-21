@@ -1,0 +1,10 @@
+  F_COMPILER = ifort
+
+# DebugFlag = -g -O0 -traceback -check all -init=snan,arrays -traceback 
+  DebugFlag = -g -O0 -traceback -check noarg_temp_created -init=snan,arrays -traceback 
+# DebugFlag = -g -O0
+# DebugFlag = -O2
+
+  FFLAGS = -r8 $(DebugFlag)
+
+  LDFLAGS = $(FFLAGS)

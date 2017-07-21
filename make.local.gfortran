@@ -1,0 +1,10 @@
+  F_COMPILER = gfortran
+
+# DebugFlag = -O3
+# DebugFlag = -O3 -g -finit-real=nan
+  DebugFlag = -O0 -g -fbounds-check -ffpe-trap=invalid,zero,overflow -fbacktrace -fimplicit-none -finit-real=nan
+# DebugFlag = -O0 -g -Wall -Warray-temporaries -fbounds-check -ffpe-trap=invalid,zero,overflow -fbacktrace -fimplicit-none -finit-real=nan
+
+  FFLAGS = -cpp -fdefault-real-8 -fdefault-double-8 -ffree-line-length-none  $(DebugFlag)
+
+  LDFLAGS = $(FFLAGS) 
